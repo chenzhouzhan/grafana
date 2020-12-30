@@ -44,7 +44,7 @@ export const SectionHeader: FC<SectionHeaderProps> = ({
     <div
       className={styles.wrapper}
       onClick={onSectionExpand}
-      aria-label={section.expanded ? `Collapse folder ${section.id}` : `Expand folder ${section.id}`}
+      aria-label={section.expanded ? `折叠文件夹 ${section.id}` : `展开文件夹 ${section.id}`}
     >
       <SearchCheckbox editable={editable} checked={section.checked} onClick={onSectionChecked} />
 
@@ -56,7 +56,7 @@ export const SectionHeader: FC<SectionHeaderProps> = ({
         {section.title}
         {section.url && (
           <a href={section.url} className={styles.link}>
-            <span className={styles.separator}>|</span> <Icon name="folder-upload" /> Go to folder
+            <span className={styles.separator}>|</span> <Icon name="folder-upload" /> 进入文件夹
           </a>
         )}
       </div>

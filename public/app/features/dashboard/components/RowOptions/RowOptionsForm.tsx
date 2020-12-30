@@ -36,7 +36,7 @@ export const RowOptionsForm: FC<Props> = ({ repeat, title, onUpdate, onCancel })
           <HorizontalGroup>
             <Button type="submit">Update</Button>
             <Button variant="secondary" onClick={onCancel}>
-              Cancel
+              取消
             </Button>
           </HorizontalGroup>
         </>

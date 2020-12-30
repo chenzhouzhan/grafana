@@ -29,8 +29,8 @@ export const removePanel = (dashboard: DashboardModel, panel: PanelModel, ask: b
     const confirmText = panel.alert ? 'YES' : undefined;
 
     appEvents.emit(CoreEvents.showConfirmModal, {
-      title: 'Remove Panel',
-      text: 'Are you sure you want to remove this panel?',
+      title: '移除看板',
+      text: '确定要删除此看板吗？',
       text2: text2,
       icon: 'trash-alt',
       confirmText: confirmText,

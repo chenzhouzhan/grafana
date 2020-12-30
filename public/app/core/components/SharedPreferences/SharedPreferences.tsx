@@ -127,8 +127,8 @@ export class SharedPreferences extends PureComponent<Props, State> {
       <Form onSubmit={this.onSubmitForm}>
         {() => {
           return (
-            <FieldSet label="Preferences">
-              <Field label="UI Theme">
+            <FieldSet label="偏好设置">
+              <Field label="主题">
                 <RadioButtonGroup
                   options={themes}
                   value={themes.find(item => item.value === theme)?.value}
@@ -139,8 +139,8 @@ export class SharedPreferences extends PureComponent<Props, State> {
               <Field
                 label={
                   <Label>
-                    <span className={styles.labelText}>Home Dashboard</span>
-                    <Tooltip content="Not finding dashboard you want? Star it first, then it should appear in this select box.">
+                    <span className={styles.labelText}>主仪表盘</span>
+                    <Tooltip content="没有找到想要的仪表板? 先收藏它，然后就会出现在选择框中。">
                       <Icon name="info-circle" />
                     </Tooltip>
                   </Label>
@@ -152,7 +152,7 @@ export class SharedPreferences extends PureComponent<Props, State> {
                   getOptionLabel={this.getFullDashName}
                   onChange={(dashboard: DashboardSearchHit) => this.onHomeDashboardChanged(dashboard.id)}
                   options={dashboards}
-                  placeholder="Choose default dashboard"
+                  placeholder="选择默认仪表盘"
                 />
               </Field>
 
@@ -160,7 +160,7 @@ export class SharedPreferences extends PureComponent<Props, State> {
                 <TimeZonePicker includeInternal={true} value={timezone} onChange={this.onTimeZoneChanged} />
               </Field>
               <div className="gf-form-button-row">
-                <Button variant="primary">Save</Button>
+                <Button variant="primary">保存</Button>
               </div>
             </FieldSet>
           );

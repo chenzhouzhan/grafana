@@ -9,7 +9,7 @@ import (
 var (
 	sortAlphaAsc = SortOption{
 		Name:        "alpha-asc",
-		DisplayName: "Alphabetically (A-Z)",
+		DisplayName: "按字母排序 (A-Z)",
 		Description: "Sort results in an alphabetically ascending order",
 		Filter: []SortOptionFilter{
 			searchstore.TitleSorter{},
@@ -17,7 +17,7 @@ var (
 	}
 	sortAlphaDesc = SortOption{
 		Name:        "alpha-desc",
-		DisplayName: "Alphabetically (Z-A)",
+		DisplayName: "按字母排序 (Z-A)",
 		Description: "Sort results in an alphabetically descending order",
 		Filter: []SortOptionFilter{
 			searchstore.TitleSorter{Descending: true},

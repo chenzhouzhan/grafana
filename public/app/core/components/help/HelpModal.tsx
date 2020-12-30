@@ -6,15 +6,15 @@ export class HelpModal extends React.PureComponent {
   static tabIndex = 0;
   static shortcuts = {
     Global: [
-      { keys: ['g', 'h'], description: 'Go to Home Dashboard' },
-      { keys: ['g', 'p'], description: 'Go to Profile' },
-      { keys: ['s', 'o'], description: 'Open search' },
-      { keys: ['esc'], description: 'Exit edit/setting views' },
+      { keys: ['g', 'h'], description: '跳转到主页仪表盘' },
+      { keys: ['g', 'p'], description: '跳转到个人资料' },
+      { keys: ['s', 'o'], description: '打开搜索' },
+      { keys: ['esc'], description: '离开编辑/设置视图' },
     ],
     Dashboard: [
-      { keys: ['mod+s'], description: 'Save dashboard' },
-      { keys: ['d', 'r'], description: 'Refresh all panels' },
-      { keys: ['d', 's'], description: 'Dashboard settings' },
+      { keys: ['mod+s'], description: '保存仪表盘' },
+      { keys: ['d', 'r'], description: '刷新所有的看板' },
+      { keys: ['d', 's'], description: '仪表盘设置' },
       { keys: ['d', 'v'], description: 'Toggle in-active / view mode' },
       { keys: ['d', 'k'], description: 'Toggle kiosk mode (hides top nav)' },
       { keys: ['d', 'E'], description: 'Expand all rows' },

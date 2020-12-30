@@ -81,7 +81,7 @@ class NewDataSourcePage extends PureComponent<Props> {
             target="_blank"
             rel="noopener"
           >
-            Find more data source plugins on grafana.com
+            查找更多的数据源插件
           </LinkButton>
         </div>
       </>
@@ -95,7 +95,7 @@ class NewDataSourcePage extends PureComponent<Props> {
       <Page navModel={navModel}>
         <Page.Contents isLoading={isLoading}>
           <div className="page-action-bar">
-            <FilterInput value={searchQuery} onChange={this.onSearchQueryChange} placeholder="Filter by name or type" />
+            <FilterInput value={searchQuery} onChange={this.onSearchQueryChange} placeholder="按名称或类型过滤" />
             <div className="page-action-bar__spacer" />
             <LinkButton href="datasources">Cancel</LinkButton>
           </div>
@@ -104,8 +104,7 @@ class NewDataSourcePage extends PureComponent<Props> {
               <>
                 <br />
                 <p>
-                  Note that <strong>unsigned front-end datasource plugins</strong> are still usable, but this is subject
-                  to change in the upcoming releases of Grafana
+                  请注意 <strong>未签名的前端数据源插件</strong> 仍旧可用, 但是这可能在后续的版本中改变
                 </p>
               </>
             </PluginsErrorsInfo>
@@ -153,7 +152,7 @@ const DataSourceTypeCard: FC<DataSourceTypeCardProps> = props => {
               {learnMoreLink.name}
             </LinkButton>
           )}
-          {!isPhantom && <Button disabled={plugin.unlicensed}>Select</Button>}
+          {!isPhantom && <Button disabled={plugin.unlicensed}>选择</Button>}
         </>
       }
       labels={
@@ -174,9 +173,9 @@ export function getNavModel(): NavModel {
   const main = {
     icon: 'database',
     id: 'datasource-new',
-    text: 'Add data source',
+    text: '添加数据源',
     href: 'datasources/new',
-    subTitle: 'Choose a data source type',
+    subTitle: '选择数据源类型',
   };
 
   return {

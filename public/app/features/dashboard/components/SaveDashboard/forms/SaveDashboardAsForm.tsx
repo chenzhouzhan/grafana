@@ -15,7 +15,7 @@ const getSaveAsDashboardClone = (dashboard: DashboardModel) => {
   const clone: any = dashboard.getSaveModelClone();
   clone.id = null;
   clone.uid = '';
-  clone.title += ' Copy';
+  clone.title += '副本';
   clone.editable = true;
   clone.hideControls = false;
 
@@ -41,7 +41,7 @@ export const SaveDashboardAsForm: React.FC<SaveDashboardFormProps & { isNew?: bo
   onSuccess,
 }) => {
   const defaultValues: SaveDashboardAsFormDTO = {
-    title: `${dashboard.title} Copy`,
+    title: `${dashboard.title}副本`,
     $folder: {
       id: dashboard.meta.folderId,
       title: dashboard.meta.folderTitle,
@@ -51,7 +51,7 @@ export const SaveDashboardAsForm: React.FC<SaveDashboardFormProps & { isNew?: bo
 
   const validateDashboardName = (getFormValues: () => SaveDashboardAsFormDTO) => async (dashboardName: string) => {
     if (dashboardName && dashboardName === getFormValues().$folder.title?.trim()) {
-      return 'Dashboard name cannot be the same as folder';
+      return '仪表盘名称不能与文件夹相同';
     }
     try {
       await validationSrv.validateNewDashboardName(getFormValues().$folder.id, dashboardName);
@@ -90,17 +90,17 @@ export const SaveDashboardAsForm: React.FC<SaveDashboardFormProps & { isNew?: bo
     >
       {({ register, control, errors, getValues }) => (
         <>
-          <Field label="Dashboard name" invalid={!!errors.title} error={errors.title?.message}>
+          <Field label="仪表盘名称" invalid={!!errors.title} error={errors.title?.message}>
             <Input
               name="title"
               ref={register({
                 validate: validateDashboardName(getValues),
               })}
-              aria-label="Save dashboard title field"
+              aria-label="保存仪表盘标题字段"
               autoFocus
             />
           </Field>
-          <Field label="Folder">
+          <Field label="文件夹">
             <InputControl
               as={FolderPicker}
               control={control}
@@ -112,15 +112,15 @@ export const SaveDashboardAsForm: React.FC<SaveDashboardFormProps & { isNew?: bo
               useNewForms
             />
           </Field>
-          <Field label="Copy tags">
+          <Field label="复制标签">
             <Switch name="copyTags" ref={register} />
           </Field>
           <HorizontalGroup>
-            <Button type="submit" aria-label="Save dashboard button">
-              Save
+            <Button type="submit" aria-label="仪表盘保存按钮">
+              保存
             </Button>
             <Button variant="secondary" onClick={onCancel}>
-              Cancel
+              取消
             </Button>
           </HorizontalGroup>
         </>

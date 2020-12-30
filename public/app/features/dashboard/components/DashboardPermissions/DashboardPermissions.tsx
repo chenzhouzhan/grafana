@@ -75,7 +75,7 @@ export class DashboardPermissions extends PureComponent<Props, State> {
             </Tooltip>
             <div className="page-action-bar__spacer" />
             <button className="btn btn-primary pull-right" onClick={this.onOpenAddPermissions} disabled={isAdding}>
-              Add Permission
+              添加权限
             </button>
           </div>
         </div>

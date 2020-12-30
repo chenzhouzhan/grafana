@@ -54,12 +54,12 @@ export const LicenseChrome: React.FC<Props> = ({ header, editionNotice, subheade
             left: '71%',
           }}
         >
-          <img
-            src="public/img/grafana_icon.svg"
-            alt="Grafana"
-            width="80px"
-            style={{ position: 'absolute', left: '23px', top: '20px' }}
-          />
+          {/*<img*/}
+          {/*  src="public/img/grafana_icon.svg"*/}
+          {/*  alt="Grafana"*/}
+          {/*  width="80px"*/}
+          {/*  style={{ position: 'absolute', left: '23px', top: '20px' }}*/}
+          {/*/>*/}
         </Circle>
       </div>
 

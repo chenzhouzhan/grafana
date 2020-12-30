@@ -5,13 +5,13 @@
     <div class="page-action-bar">
       <div class="page-action-bar__spacer"></div>
       <a class="btn btn-primary pull-right" href="playlists/create">
-        New playlist
+        新建播放列表
       </a>
     </div>
 
     <table class="filter-table filter-table--hover">
       <thead>
-        <th><strong>Name</strong></th>
+        <th><strong>名称</strong></th>
         <th style="width: 100px"></th>
         <th style="width: 78px"></th>
       </thead>
@@ -21,25 +21,25 @@
         </td>
         <td class="dropdown">
           <button class="btn btn-inverse btn-small" data-toggle="dropdown">
-            Start playlist
+            开始播放
             <icon name="'angle-down'"></icon>
           </button>
           <ul class="dropdown-menu" role="menu">
             <li>
               <a href="{{playlist.startUrl}}">
-                <icon name="'play'"></icon> In Normal mode</span>
+                <icon name="'play'"></icon> 普通模式</span>
               </a>
               <a href="{{playlist.startUrl}}?kiosk=tv">
-                <icon name="'play'"></icon> In TV mode</span>
+                <icon name="'play'"></icon> TV模式</span>
               </a>
               <a href="{{playlist.startUrl}}?kiosk=tv&autofitpanels">
-                <icon name="'play'"></icon> In TV mode <span class="muted">(with auto fit panels)</span>
+                <icon name="'play'"></icon> TV模式 <span class="muted">(自动调整面板)</span>
               </a>
               <a href="{{playlist.startUrl}}?kiosk">
-                <icon name="'play'"></icon> In Kiosk mode</span>
+                <icon name="'play'"></icon> Kiosk模式</span>
               </a>
               <a ng-href="{{playlist.startUrl}}?kiosk&autofitpanels">
-                <icon name="'play'"></icon> In Kiosk mode <span class="muted">(with auto fit panels)</span>
+                <icon name="'play'"></icon> Kiosk模式 <span class="muted">(自动调整面板)</span>
               </a>
             </li>
           </ul>

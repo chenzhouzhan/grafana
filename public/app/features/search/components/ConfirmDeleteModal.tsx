@@ -23,18 +23,18 @@ export const ConfirmDeleteModal: FC<Props> = ({ results, onDeleteItems, isOpen, 
   const folderCount = folders.length;
   const dashCount = dashboards.length;
 
-  let text = 'Do you want to delete the ';
+  let text = '你想要删除 ';
   let subtitle;
   const dashEnding = dashCount === 1 ? '' : 's';
   const folderEnding = folderCount === 1 ? '' : 's';
 
   if (folderCount > 0 && dashCount > 0) {
-    text += `selected folder${folderEnding} and dashboard${dashEnding}?\n`;
-    subtitle = `All dashboards of the selected folder${folderEnding} will also be deleted`;
+    text += `选中的文件夹${folderEnding} 和仪表盘${dashEnding}?\n`;
+    subtitle = `所有在选中文件夹内的仪表盘${folderEnding} 也会被删除`;
   } else if (folderCount > 0) {
-    text += `selected folder${folderEnding} and all its dashboards?`;
+    text += `选中的文件夹${folderEnding} 以及文件夹下所有的仪表盘?`;
   } else {
-    text += `selected dashboard${dashEnding}?`;
+    text += `选中的仪表盘${dashEnding}?`;
   }
 
   const deleteItems = () => {
@@ -49,13 +49,13 @@ export const ConfirmDeleteModal: FC<Props> = ({ results, onDeleteItems, isOpen, 
   return isOpen ? (
     <ConfirmModal
       isOpen={isOpen}
-      title="Delete"
+      title="删除"
       body={
         <>
           {text} {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
         </>
       }
-      confirmText="Delete"
+      confirmText="删除"
       onConfirm={deleteItems}
       onDismiss={onDismiss}
     />

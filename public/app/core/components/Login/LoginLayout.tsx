@@ -3,7 +3,7 @@ import { cx, css, keyframes } from 'emotion';
 import { useStyles } from '@grafana/ui';
 import { Branding } from '../Branding/Branding';
 import { GrafanaTheme } from '@grafana/data';
-import { Footer } from '../Footer/Footer';
+import { LoginFooter } from '../Footer/Footer_login';
 
 interface InnerBoxProps {
   enterAnimation?: boolean;
@@ -27,7 +27,12 @@ export const LoginLayout: FC = ({ children }) => {
         </div>
         <div className={loginStyles.loginOuterBox}>{children}</div>
       </div>
-      <Footer />
+      <div className={loginStyles.companyDiv}>
+        <span className={loginStyles.companyLine}></span>
+        <span className={loginStyles.company}>上海电力股份有限公司</span>
+        <span className={loginStyles.companyLine}></span>
+      </div>
+      <LoginFooter />
     </Branding.LoginBackground>
   );
 };
@@ -64,8 +69,8 @@ export const getLoginStyles = (theme: GrafanaTheme) => {
     `,
     loginLogo: css`
       width: 100%;
-      max-width: 100px;
-      margin-bottom: 15px;
+      max-width: 140px;
+      margin-bottom: 45px;
     `,
     loginLogoWrapper: css`
       display: flex;
@@ -78,7 +83,8 @@ export const getLoginStyles = (theme: GrafanaTheme) => {
       text-align: center;
     `,
     mainTitle: css`
-      font-size: 32px;
+      font-size: 44px;
+      color: white;
     `,
     subTitle: css`
       font-size: ${theme.typography.size.md};
@@ -120,6 +126,35 @@ export const getLoginStyles = (theme: GrafanaTheme) => {
     `,
     enterAnimation: css`
       animation: ${flyInAnimation} ease-out 0.2s;
+    `,
+    companyDiv: css`
+      width: 352px;
+      height: 70px;
+      line-height: 70px;
+      text-align: center;
+    `,
+    companyLine: css`
+      display: inline-block;
+      width: 40px;
+      border-top: 1px solid white;
+      vertical-align: 7px;
+    `,
+    company: css`
+      font-size: 20px;
+      color: white;
+      text-align: center;
+      position: relative;
+      z-index: 3;
+    `,
+    copyright: css`
+      text-align: left;
+      padding-left: 73px;
+      font-size: 20px;
+      color: white;
+      font-weight: normal;
+    `,
+    copyrightRed: css`
+      color: red;
     `,
   };
 };

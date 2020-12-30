@@ -161,7 +161,7 @@ export const TimePickerContentWithScreenSize: React.FC<PropsWithScreenSize> = pr
         <CustomScrollbar className={styles.rightSide}>
           <NarrowScreenForm {...props} visible={!isFullscreen} historyOptions={historyOptions} />
           <TimeRangeList
-            title="Relative time ranges"
+            title="相对时间范围"
             options={quickOptions}
             onSelect={props.onChange}
             value={props.value}
@@ -169,7 +169,7 @@ export const TimePickerContentWithScreenSize: React.FC<PropsWithScreenSize> = pr
           />
           <div className={styles.spacing} />
           <TimeRangeList
-            title="Other quick ranges"
+            title="其他快速范围"
             options={otherOptions}
             onSelect={props.onChange}
             value={props.value}
@@ -203,11 +203,7 @@ const NarrowScreenForm: React.FC<FormProps> = props => {
 
   return (
     <>
-      <div
-        aria-label="TimePicker absolute time range"
-        className={styles.header}
-        onClick={() => setCollapsed(!collapsed)}
-      >
+      <div aria-label="绝对时间范围" className={styles.header} onClick={() => setCollapsed(!collapsed)}>
         <TimePickerTitle>Absolute time range</TimePickerTitle>
         {<Icon name={collapsed ? 'angle-up' : 'angle-down'} />}
       </div>
@@ -223,7 +219,7 @@ const NarrowScreenForm: React.FC<FormProps> = props => {
           </div>
           {props.showHistory && (
             <TimeRangeList
-              title="Recently used absolute ranges"
+              title="最近使用的绝对范围"
               options={props.historyOptions || []}
               onSelect={props.onChange}
               value={props.value}
@@ -249,7 +245,7 @@ const FullScreenForm: React.FC<FormProps> = props => {
     <>
       <div className={styles.container}>
         <div aria-label="TimePicker absolute time range" className={styles.title}>
-          <TimePickerTitle>Absolute time range</TimePickerTitle>
+          <TimePickerTitle>绝对时间范围</TimePickerTitle>
         </div>
         <TimeRangeForm
           value={props.value}
@@ -262,7 +258,7 @@ const FullScreenForm: React.FC<FormProps> = props => {
       {props.showHistory && (
         <div className={styles.recent}>
           <TimeRangeList
-            title="Recently used absolute ranges"
+            title="最近使用的绝对范围"
             options={props.historyOptions || []}
             onSelect={props.onChange}
             value={props.value}
@@ -281,22 +277,22 @@ const EmptyRecentList = memo(() => {
 
   return (
     <div className={styles.container}>
-      <div>
-        <span>
-          It looks like you haven't used this timer picker before. As soon as you enter some time intervals, recently
-          used intervals will appear here.
-        </span>
-      </div>
-      <div>
-        <a
-          className={styles.link}
-          href="https://grafana.com/docs/grafana/latest/dashboards/time-range-controls"
-          target="_new"
-        >
-          Read the documentation
-        </a>
-        <span> to find out more about how to enter custom time ranges.</span>
-      </div>
+      {/*<div>*/}
+      {/*  <span>*/}
+      {/*    It looks like you haven't used this timer picker before. As soon as you enter some time intervals, recently*/}
+      {/*    used intervals will appear here.*/}
+      {/*  </span>*/}
+      {/*</div>*/}
+      {/*<div>*/}
+      {/*  <a*/}
+      {/*    className={styles.link}*/}
+      {/*    href="https://grafana.com/docs/grafana/latest/dashboards/time-range-controls"*/}
+      {/*    target="_new"*/}
+      {/*  >*/}
+      {/*    Read the documentation*/}
+      {/*  </a>*/}
+      {/*  <span> to find out more about how to enter custom time ranges.</span>*/}
+      {/*</div>*/}
     </div>
   );
 });

@@ -25,7 +25,7 @@ export const ErrorLoadingChunk: FunctionComponent<Props> = ({ error }) => (
       </Button>
     </div>
     <details style={{ whiteSpace: 'pre-wrap' }}>
-      {error && error.message ? error.message : 'Unexpected error occurred'}
+      {error && error.message ? error.message : '发生未知错误'}
       <br />
       {error && error.stack ? error.stack : null}
     </details>

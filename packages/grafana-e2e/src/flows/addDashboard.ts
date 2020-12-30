@@ -59,7 +59,7 @@ export const addDashboard = (config?: Partial<AddDashboardConfig>) => {
   e2e.pages.AddDashboard.visit();
 
   if (annotations.length > 0 || variables.length > 0) {
-    e2e.pages.Dashboard.Toolbar.toolbarItems('Dashboard settings').click();
+    e2e.pages.Dashboard.Toolbar.toolbarItems('仪表盘设置').click();
     addAnnotations(annotations);
 
     fullConfig.variables = addVariables(variables);
@@ -69,7 +69,7 @@ export const addDashboard = (config?: Partial<AddDashboardConfig>) => {
 
   setDashboardTimeRange(timeRange);
 
-  e2e.pages.Dashboard.Toolbar.toolbarItems('Save dashboard').click();
+  e2e.pages.Dashboard.Toolbar.toolbarItems('保存仪表盘').click();
   e2e.pages.SaveDashboardAsModal.newName()
     .clear()
     .type(title);

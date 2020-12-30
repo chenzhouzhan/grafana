@@ -41,29 +41,27 @@ export const NewOrgPage: FC<PropsWithState> = ({ navModel }) => {
   return (
     <Page navModel={navModel}>
       <Page.Contents>
-        <h3 className="page-sub-heading">New Organization</h3>
+        <h3 className="page-sub-heading">新增组织</h3>
 
         <p className="playlist-description">
-          Each organization contains their own dashboards, data sources and configuration, and cannot be shared between
-          orgs. While users may belong to more than one, multiple organization are most frequently used in multi-tenant
-          deployments.{' '}
+          每个组织都包含自己的仪表板、数据源和配置，不能在组织之间共享。虽然用户可能属于多个组织，但多个组织在多租户部署中最常用。{' '}
         </p>
 
         <Form<CreateOrgFormDTO> onSubmit={createOrg}>
           {({ register, errors }) => {
             return (
               <>
-                <Field label="Organization name" invalid={!!errors.name} error={errors.name && errors.name.message}>
+                <Field label="组织名" invalid={!!errors.name} error={errors.name && errors.name.message}>
                   <Input
-                    placeholder="Org. name"
+                    placeholder="组织名称"
                     name="name"
                     ref={register({
-                      required: 'Organization name is required',
+                      required: '组织名不能为空',
                       validate: async orgName => await validateOrg(orgName),
                     })}
                   />
                 </Field>
-                <Button type="submit">Create</Button>
+                <Button type="submit">创建</Button>
               </>
             );
           }}

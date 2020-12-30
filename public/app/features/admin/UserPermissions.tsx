@@ -52,7 +52,7 @@ export class UserPermissions extends PureComponent<Props, State> {
 
     return (
       <>
-        <h3 className="page-heading">Permissions</h3>
+        <h3 className="page-heading">权限</h3>
         <div className="gf-form-group">
           <div className="gf-form">
             <table className="filter-table form-inline">

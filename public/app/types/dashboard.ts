@@ -49,7 +49,7 @@ export enum DashboardRouteInfo {
 
 export enum DashboardInitPhase {
   NotStarted = 'Not started',
-  Fetching = 'Fetching',
+  Fetching = '正在获取',
   Services = 'Services',
   Failed = 'Failed',
   Completed = 'Completed',

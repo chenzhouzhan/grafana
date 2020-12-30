@@ -27,7 +27,7 @@ func GetOrgByName(c *models.ReqContext) Response {
 			return Error(404, "Organization not found", err)
 		}
 
-		return Error(500, "Failed to get organization", err)
+		return Error(500, "获取组织失败", err)
 	}
 	org := query.Result
 	result := models.OrgDetailsDTO{
@@ -54,7 +54,7 @@ func getOrgHelper(orgID int64) Response {
 			return Error(404, "Organization not found", err)
 		}
 
-		return Error(500, "Failed to get organization", err)
+		return Error(500, "获取组织失败", err)
 	}
 
 	org := query.Result
@@ -85,14 +85,14 @@ func CreateOrg(c *models.ReqContext, cmd models.CreateOrgCommand) Response {
 		if err == models.ErrOrgNameTaken {
 			return Error(409, "Organization name taken", err)
 		}
-		return Error(500, "Failed to create organization", err)
+		return Error(500, "创建组织失败", err)
 	}
 
 	metrics.MApiOrgCreate.Inc()
 
 	return JSON(200, &util.DynMap{
 		"orgId":   cmd.Result.Id,
-		"message": "Organization created",
+		"message": "组织已创建",
 	})
 }
 
@@ -112,10 +112,10 @@ func updateOrgHelper(form dtos.UpdateOrgForm, orgID int64) Response {
 		if err == models.ErrOrgNameTaken {
 			return Error(400, "Organization name taken", err)
 		}
-		return Error(500, "Failed to update organization", err)
+		return Error(500, "更新组织食品", err)
 	}
 
-	return Success("Organization updated")
+	return Success("组织已更新")
 }
 
 // PUT /api/org/address
@@ -145,7 +145,7 @@ func updateOrgAddressHelper(form dtos.UpdateOrgAddressForm, orgID int64) Respons
 		return Error(500, "Failed to update org address", err)
 	}
 
-	return Success("Address updated")
+	return Success("地址已更新")
 }
 
 // GET /api/orgs/:orgId
@@ -154,9 +154,9 @@ func DeleteOrgByID(c *models.ReqContext) Response {
 		if err == models.ErrOrgNotFound {
 			return Error(404, "Failed to delete organization. ID not found", nil)
 		}
-		return Error(500, "Failed to update organization", err)
+		return Error(500, "更新组织失败", err)
 	}
-	return Success("Organization deleted")
+	return Success("组织已删除")
 }
 
 func SearchOrgs(c *models.ReqContext) Response {

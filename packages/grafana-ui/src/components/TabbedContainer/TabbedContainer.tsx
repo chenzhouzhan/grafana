@@ -74,7 +74,7 @@ export function TabbedContainer(props: TabbedContainerProps) {
             icon={t.icon}
           />
         ))}
-        <IconButton className={styles.close} onClick={onClose} name="times" title={closeIconTooltip ?? 'Close'} />
+        <IconButton className={styles.close} onClick={onClose} name="times" title={closeIconTooltip ?? '关闭'} />
       </TabsBar>
       <CustomScrollbar className={styles.scrollbar}>
         <TabContent className={styles.tabContent}>{tabs.find(t => t.value === activeTab)?.content}</TabContent>

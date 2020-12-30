@@ -26,7 +26,7 @@ export const ChangePassword: FC<Props> = ({ onSubmit, onSkip }) => {
               type="password"
               name="newPassword"
               ref={register({
-                required: 'New password required',
+                required: '新密码不能为空',
               })}
             />
           </Field>
@@ -35,8 +35,8 @@ export const ChangePassword: FC<Props> = ({ onSubmit, onSkip }) => {
               type="password"
               name="confirmNew"
               ref={register({
-                required: 'Confirmed password is required',
-                validate: v => v === getValues().newPassword || 'Passwords must match!',
+                required: '请再次输入新密码',
+                validate: v => v === getValues().newPassword || '两次密码不匹配!',
               })}
             />
           </Field>

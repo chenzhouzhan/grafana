@@ -28,17 +28,17 @@ func getProfileNode(c *models.ReqContext) *dtos.NavLink {
 
 	children := []*dtos.NavLink{
 		{
-			Text: "Preferences", Id: "profile-settings", Url: setting.AppSubUrl + "/profile", Icon: "sliders-v-alt",
+			Text: "偏好设置", Id: "profile-settings", Url: setting.AppSubUrl + "/profile", Icon: "sliders-v-alt",
 		},
 		{
-			Text: "Change Password", Id: "change-password", Url: setting.AppSubUrl + "/profile/password",
+			Text: "修改密码", Id: "change-password", Url: setting.AppSubUrl + "/profile/password",
 			Icon: "lock", HideFromMenu: true,
 		},
 	}
 	if !setting.DisableSignoutMenu {
 		// add sign out first
 		children = append(children, &dtos.NavLink{
-			Text:         "Sign out",
+			Text:         "登出",
 			Id:           "sign-out",
 			Url:          setting.AppSubUrl + "/logout",
 			Icon:         "arrow-from-right",
@@ -132,20 +132,20 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if hasEditPerm {
 		children := []*dtos.NavLink{
-			{Text: "Dashboard", Icon: "apps", Url: setting.AppSubUrl + "/dashboard/new"},
+			{Text: "仪表盘", Icon: "apps", Url: setting.AppSubUrl + "/dashboard/new"},
 		}
 		if c.OrgRole == models.ROLE_ADMIN || c.OrgRole == models.ROLE_EDITOR {
 			children = append(children, &dtos.NavLink{
-				Text: "Folder", SubTitle: "Create a new folder to organize your dashboards", Id: "folder",
+				Text: "文件夹", SubTitle: "创建一个新文件夹来管理仪表板", Id: "folder",
 				Icon: "folder-plus", Url: setting.AppSubUrl + "/dashboards/folder/new",
 			})
 		}
 		children = append(children, &dtos.NavLink{
-			Text: "Import", SubTitle: "Import dashboard from file or Grafana.com", Id: "import", Icon: "import",
+			Text: "导入", SubTitle: "导入仪表盘", Id: "import", Icon: "import",
 			Url: setting.AppSubUrl + "/dashboard/import",
 		})
 		navTree = append(navTree, &dtos.NavLink{
-			Text:       "Create",
+			Text:       "创建",
 			Id:         "create",
 			Icon:       "plus",
 			Url:        setting.AppSubUrl + "/dashboard/new",
@@ -155,17 +155,17 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 	}
 
 	dashboardChildNavs := []*dtos.NavLink{
-		{Text: "Home", Id: "home", Url: setting.AppSubUrl + "/", Icon: "home-alt", HideFromTabs: true},
+		{Text: "主页", Id: "home", Url: setting.AppSubUrl + "/", Icon: "home-alt", HideFromTabs: true},
 		{Text: "Divider", Divider: true, Id: "divider", HideFromTabs: true},
-		{Text: "Manage", Id: "manage-dashboards", Url: setting.AppSubUrl + "/dashboards", Icon: "sitemap"},
-		{Text: "Playlists", Id: "playlists", Url: setting.AppSubUrl + "/playlists", Icon: "presentation-play"},
-		{Text: "Snapshots", Id: "snapshots", Url: setting.AppSubUrl + "/dashboard/snapshots", Icon: "camera"},
+		{Text: "管理", Id: "manage-dashboards", Url: setting.AppSubUrl + "/dashboards", Icon: "sitemap"},
+		{Text: "播放列表", Id: "playlists", Url: setting.AppSubUrl + "/playlists", Icon: "presentation-play"},
+		{Text: "快照", Id: "snapshots", Url: setting.AppSubUrl + "/dashboard/snapshots", Icon: "camera"},
 	}
 
 	navTree = append(navTree, &dtos.NavLink{
-		Text:       "Dashboards",
+		Text:       "远程诊断平台",
 		Id:         "dashboards",
-		SubTitle:   "Manage dashboards & folders",
+		SubTitle:   "管理仪表盘 & 文件夹",
 		Icon:       "apps",
 		Url:        setting.AppSubUrl + "/",
 		SortWeight: dtos.WeightDashboard,
@@ -174,9 +174,9 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if setting.ExploreEnabled && (c.OrgRole == models.ROLE_ADMIN || c.OrgRole == models.ROLE_EDITOR || setting.ViewersCanEdit) {
 		navTree = append(navTree, &dtos.NavLink{
-			Text:       "Explore",
+			Text:       "探索",
 			Id:         "explore",
-			SubTitle:   "Explore your data",
+			SubTitle:   "探索你的数据",
 			Icon:       "compass",
 			SortWeight: dtos.WeightExplore,
 			Url:        setting.AppSubUrl + "/explore",
@@ -189,16 +189,16 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if setting.AlertingEnabled && (c.OrgRole == models.ROLE_ADMIN || c.OrgRole == models.ROLE_EDITOR) {
 		alertChildNavs := []*dtos.NavLink{
-			{Text: "Alert Rules", Id: "alert-list", Url: setting.AppSubUrl + "/alerting/list", Icon: "list-ul"},
+			{Text: "告警规则", Id: "alert-list", Url: setting.AppSubUrl + "/alerting/list", Icon: "list-ul"},
 			{
-				Text: "Notification channels", Id: "channels", Url: setting.AppSubUrl + "/alerting/notifications",
+				Text: "告警通道", Id: "channels", Url: setting.AppSubUrl + "/alerting/notifications",
 				Icon: "comment-alt-share",
 			},
 		}
 
 		navTree = append(navTree, &dtos.NavLink{
-			Text:       "Alerting",
-			SubTitle:   "Alert rules & notifications",
+			Text:       "告警",
+			SubTitle:   "告警规则 & 通知",
 			Id:         "alerting",
 			Icon:       "bell",
 			Url:        setting.AppSubUrl + "/alerting/list",
@@ -217,16 +217,16 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if c.OrgRole == models.ROLE_ADMIN {
 		configNodes = append(configNodes, &dtos.NavLink{
-			Text:        "Data Sources",
+			Text:        "数据源",
 			Icon:        "database",
-			Description: "Add and configure data sources",
+			Description: "添加并配置数据源",
 			Id:          "datasources",
 			Url:         setting.AppSubUrl + "/datasources",
 		})
 		configNodes = append(configNodes, &dtos.NavLink{
-			Text:        "Users",
+			Text:        "用户",
 			Id:          "users",
-			Description: "Manage org members",
+			Description: "管理组织成员",
 			Icon:        "user",
 			Url:         setting.AppSubUrl + "/org/users",
 		})
@@ -234,9 +234,9 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if c.OrgRole == models.ROLE_ADMIN || (hs.Cfg.EditorsCanAdmin && c.OrgRole == models.ROLE_EDITOR) {
 		configNodes = append(configNodes, &dtos.NavLink{
-			Text:        "Teams",
+			Text:        "团队",
 			Id:          "teams",
-			Description: "Manage org groups",
+			Description: "管理组织组",
 			Icon:        "users-alt",
 			Url:         setting.AppSubUrl + "/org/teams",
 		})
@@ -244,22 +244,22 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if c.OrgRole == models.ROLE_ADMIN {
 		configNodes = append(configNodes, &dtos.NavLink{
-			Text:        "Plugins",
+			Text:        "插件",
 			Id:          "plugins",
-			Description: "View and configure plugins",
+			Description: "查看 & 配置插件",
 			Icon:        "plug",
 			Url:         setting.AppSubUrl + "/plugins",
 		})
 
 		configNodes = append(configNodes, &dtos.NavLink{
-			Text:        "Preferences",
+			Text:        "偏好设置",
 			Id:          "org-settings",
-			Description: "Organization preferences",
+			Description: "组织首选项",
 			Icon:        "sliders-v-alt",
 			Url:         setting.AppSubUrl + "/org",
 		})
 		configNodes = append(configNodes, &dtos.NavLink{
-			Text:        "API Keys",
+			Text:        "API 密钥",
 			Id:          "apikeys",
 			Description: "Create & manage API keys",
 			Icon:        "key-skeleton-alt",
@@ -270,8 +270,8 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 	if len(configNodes) > 0 {
 		navTree = append(navTree, &dtos.NavLink{
 			Id:         "cfg",
-			Text:       "Configuration",
-			SubTitle:   "Organization: " + c.OrgName,
+			Text:       "配置",
+			SubTitle:   "组织: " + c.OrgName,
 			Icon:       "cog",
 			Url:        configNodes[0].Url,
 			SortWeight: dtos.WeightConfig,
@@ -281,10 +281,10 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 
 	if c.IsGrafanaAdmin {
 		adminNavLinks := []*dtos.NavLink{
-			{Text: "Users", Id: "global-users", Url: setting.AppSubUrl + "/admin/users", Icon: "user"},
-			{Text: "Orgs", Id: "global-orgs", Url: setting.AppSubUrl + "/admin/orgs", Icon: "building"},
-			{Text: "Settings", Id: "server-settings", Url: setting.AppSubUrl + "/admin/settings", Icon: "sliders-v-alt"},
-			{Text: "Stats", Id: "server-stats", Url: setting.AppSubUrl + "/admin/stats", Icon: "graph-bar"},
+			{Text: "用户", Id: "global-users", Url: setting.AppSubUrl + "/admin/users", Icon: "user"},
+			{Text: "组织", Id: "global-orgs", Url: setting.AppSubUrl + "/admin/orgs", Icon: "building"},
+			//{Text: "设置", Id: "server-settings", Url: setting.AppSubUrl + "/admin/settings", Icon: "sliders-v-alt"},
+			{Text: "统计", Id: "server-stats", Url: setting.AppSubUrl + "/admin/stats", Icon: "graph-bar"},
 		}
 
 		if setting.LDAPEnabled {
@@ -294,8 +294,8 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 		}
 
 		navTree = append(navTree, &dtos.NavLink{
-			Text:         "Server Admin",
-			SubTitle:     "Manage all users & orgs",
+			Text:         "服务管理",
+			SubTitle:     "管理用户 & 组织",
 			HideFromTabs: true,
 			Id:           "admin",
 			Icon:         "shield",
@@ -305,21 +305,21 @@ func (hs *HTTPServer) getNavTree(c *models.ReqContext, hasEditPerm bool) ([]*dto
 		})
 	}
 
-	helpVersion := fmt.Sprintf(`%s v%s (%s)`, setting.ApplicationName, setting.BuildVersion, setting.BuildCommit)
-	if hs.Cfg.AnonymousHideVersion && !c.IsSignedIn {
-		helpVersion = setting.ApplicationName
-	}
-
-	navTree = append(navTree, &dtos.NavLink{
-		Text:         "Help",
-		SubTitle:     helpVersion,
-		Id:           "help",
-		Url:          "#",
-		Icon:         "question-circle",
-		HideFromMenu: true,
-		SortWeight:   dtos.WeightHelp,
-		Children:     []*dtos.NavLink{},
-	})
+	//helpVersion := fmt.Sprintf(`%s v%s (%s)`, setting.ApplicationName, setting.BuildVersion, setting.BuildCommit)
+	//if hs.Cfg.AnonymousHideVersion && !c.IsSignedIn {
+	//	helpVersion = setting.ApplicationName
+	//}
+	//
+	//navTree = append(navTree, &dtos.NavLink{
+	//	Text:         "帮助",
+	//	SubTitle:     helpVersion,
+	//	Id:           "help",
+	//	Url:          "#",
+	//	Icon:         "question-circle",
+	//	HideFromMenu: true,
+	//	SortWeight:   dtos.WeightHelp,
+	//	Children:     []*dtos.NavLink{},
+	//})
 
 	return navTree, nil
 }
@@ -346,7 +346,7 @@ func (hs *HTTPServer) setIndexViewData(c *models.ReqContext) (*dtos.IndexViewDat
 
 	// Read locale from accept-language
 	acceptLang := c.Req.Header.Get("Accept-Language")
-	locale := "en-US"
+	locale := "zh-CN"
 
 	if len(acceptLang) > 0 {
 		parts := strings.Split(acceptLang, ",")
@@ -401,7 +401,7 @@ func (hs *HTTPServer) setIndexViewData(c *models.ReqContext) (*dtos.IndexViewDat
 		AppNameBodyClass:        getAppNameBodyClass(hs.License.HasValidLicense()),
 		FavIcon:                 "public/img/fav32.png",
 		AppleTouchIcon:          "public/img/apple-touch-icon.png",
-		AppTitle:                "Grafana",
+		AppTitle:                "智慧电力云平台",
 		NavTree:                 navTree,
 	}
 

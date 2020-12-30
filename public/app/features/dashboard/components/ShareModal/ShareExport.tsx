@@ -108,7 +108,7 @@ export class ShareExport extends PureComponent<Props, State> {
                 View JSON
               </Button>
               <Button variant="secondary" onClick={onDismiss}>
-                Cancel
+                取消
               </Button>
             </div>
           </div>

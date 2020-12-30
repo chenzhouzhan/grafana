@@ -94,28 +94,28 @@ export class UserProfile extends PureComponent<Props, State> {
             <table className="filter-table form-inline">
               <tbody>
                 <UserProfileRow
-                  label="Name"
+                  label="姓名"
                   value={user.name}
                   locked={user.isExternal}
                   lockMessage={lockMessage}
                   onChange={this.onUserNameChange}
                 />
                 <UserProfileRow
-                  label="Email"
+                  label="邮箱"
                   value={user.email}
                   locked={user.isExternal}
                   lockMessage={lockMessage}
                   onChange={this.onUserEmailChange}
                 />
                 <UserProfileRow
-                  label="Username"
+                  label="用户名"
                   value={user.login}
                   locked={user.isExternal}
                   lockMessage={lockMessage}
                   onChange={this.onUserLoginChange}
                 />
                 <UserProfileRow
-                  label="Password"
+                  label="密码"
                   value="********"
                   inputType="password"
                   locked={user.isExternal}
@@ -127,30 +127,30 @@ export class UserProfile extends PureComponent<Props, State> {
           </div>
           <div className={styles.buttonRow}>
             <Button variant="destructive" onClick={this.showDeleteUserModal(true)}>
-              Delete User
+              删除用户
             </Button>
             <ConfirmModal
               isOpen={showDeleteModal}
-              title="Delete user"
-              body="Are you sure you want to delete this user?"
-              confirmText="Delete user"
+              title="删除用户"
+              body="确定要删除此用户吗？"
+              confirmText="删除用户"
               onConfirm={this.onUserDelete}
               onDismiss={this.showDeleteUserModal(false)}
             />
             {user.isDisabled ? (
               <Button variant="secondary" onClick={this.onUserEnable}>
-                Enable User
+                启用用户
               </Button>
             ) : (
               <Button variant="secondary" onClick={this.showDisableUserModal(true)}>
-                Disable User
+                禁用用户
               </Button>
             )}
             <ConfirmModal
               isOpen={showDisableModal}
-              title="Disable user"
-              body="Are you sure you want to disable this user?"
-              confirmText="Disable user"
+              title="禁用用户"
+              body="确定要禁用此用户吗？"
+              confirmText="禁用用户"
               onConfirm={this.onUserDisable}
               onDismiss={this.showDisableUserModal(false)}
             />
@@ -286,7 +286,7 @@ export class UserProfileRow extends PureComponent<UserProfileRowProps, UserProfi
               onConfirm={this.onSave}
               onCancel={this.onCancelClick}
             >
-              Edit
+              编辑
             </ConfirmButton>
           </div>
         </td>

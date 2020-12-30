@@ -14,8 +14,8 @@ export default class InviteesTable extends PureComponent<Props> {
       <table className="filter-table form-inline">
         <thead>
           <tr>
-            <th>Email</th>
-            <th>Name</th>
+            <th>邮箱</th>
+            <th>姓名</th>
             <th />
             <th style={{ width: '34px' }} />
           </tr>

@@ -23,7 +23,7 @@ export class SideMenu extends PureComponent {
         <Icon name="bars" size="xl" />
         <span className="sidemenu__close">
           <Icon name="times" />
-          &nbsp;Close
+          &nbsp;关闭
         </span>
       </div>,
       <TopSection key="topsection" />,

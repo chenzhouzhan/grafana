@@ -380,7 +380,7 @@ func createPackage(options linuxPackageOptions) {
 	}
 	args = append(args, "--name", name)
 
-	description := "Grafana"
+	description := "智慧电力云平台"
 	if enterprise {
 		description += " Enterprise"
 	}
@@ -582,7 +582,7 @@ func getGitBranch() string {
 func getGitSha() string {
 	v, err := runError("git", "rev-parse", "--short", "HEAD")
 	if err != nil {
-		return "unknown-dev"
+		return "未知设备"
 	}
 	return string(v)
 }

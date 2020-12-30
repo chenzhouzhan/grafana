@@ -261,25 +261,20 @@ export class PanelEditorUnconnected extends PureComponent<Props> {
           <div className={styles.toolbarLeft}>
             <HorizontalGroup spacing="none">
               <BackButton onClick={this.onPanelExit} surface="panel" />
-              <span className={styles.editorTitle}>{dashboard.title} / Edit Panel</span>
+              <span className={styles.editorTitle}>{dashboard.title} / 编辑看板</span>
             </HorizontalGroup>
           </div>
 
           <HorizontalGroup>
             <HorizontalGroup spacing="sm" align="center">
-              <Button
-                icon="cog"
-                onClick={this.onOpenDashboardSettings}
-                variant="secondary"
-                title="Open dashboard settings"
-              />
-              <Button onClick={this.onDiscard} variant="secondary" title="Undo all changes">
+              <Button icon="cog" onClick={this.onOpenDashboardSettings} variant="secondary" title="打开仪表盘设置" />
+              <Button onClick={this.onDiscard} variant="secondary" title="撤消所有更改">
                 Discard
               </Button>
-              <Button onClick={this.onSaveDashboard} variant="secondary" title="Apply changes and save dashboard">
+              <Button onClick={this.onSaveDashboard} variant="secondary" title="应用更改并保存仪表盘">
                 Save
               </Button>
-              <Button onClick={this.onPanelExit} title="Apply changes and go back to dashboard">
+              <Button onClick={this.onPanelExit} title="应用更改并返回仪表盘">
                 Apply
               </Button>
             </HorizontalGroup>

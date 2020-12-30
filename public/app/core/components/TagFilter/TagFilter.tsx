@@ -34,7 +34,7 @@ export const TagFilter: FC<Props> = ({
   hideValues,
   isClearable,
   onChange,
-  placeholder = 'Filter by tag',
+  placeholder = '根据标签过滤',
   tagOptions,
   tags,
   width,
@@ -67,8 +67,8 @@ export const TagFilter: FC<Props> = ({
     getOptionValue: (i: any) => i.value,
     isMulti: true,
     loadOptions: onLoadOptions,
-    loadingMessage: 'Loading...',
-    noOptionsMessage: 'No tags found',
+    loadingMessage: '加载中...',
+    noOptionsMessage: '未找到标签',
     onChange: onTagChange,
     placeholder,
     styles: resetSelectStyles(),
@@ -93,7 +93,7 @@ export const TagFilter: FC<Props> = ({
   };
 
   return (
-    <div className={styles.tagFilter} aria-label="Tag filter">
+    <div className={styles.tagFilter} aria-label="标签过滤">
       {isClearable && tags.length > 0 && (
         <span className={styles.clear} onClick={() => onTagChange([])}>
           Clear tags
@@ -104,7 +104,7 @@ export const TagFilter: FC<Props> = ({
   );
 };
 
-TagFilter.displayName = 'TagFilter';
+TagFilter.displayName = '标签过滤';
 
 const getStyles = stylesFactory((theme: GrafanaTheme) => {
   return {

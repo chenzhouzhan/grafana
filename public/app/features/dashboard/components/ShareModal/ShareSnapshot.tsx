@@ -253,7 +253,7 @@ export class ShareSnapshot extends PureComponent<Props, State> {
             </Button>
           )}
           <Button variant="secondary" onClick={onDismiss}>
-            Cancel
+            取消
           </Button>
         </div>
       </>

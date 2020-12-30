@@ -14,7 +14,7 @@ export const setTimeRange = ({ from, to, zone }: TimeRangeConfig) => {
 
   if (zone) {
     e2e()
-      .contains('button', 'Change time zone')
+      .contains('button', '更改时区')
       .click();
 
     selectOption({

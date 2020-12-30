@@ -276,10 +276,10 @@ const Footer = memo<Props>(({ onClose, onApply }) => {
   return (
     <div className={styles.container}>
       <Button className={styles.apply} onClick={onApply}>
-        Apply time range
+        应用时间范围
       </Button>
       <Button variant="secondary" onClick={onClose}>
-        Cancel
+        取消
       </Button>
     </div>
   );

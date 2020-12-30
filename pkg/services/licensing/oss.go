@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	openSource = "Open Source"
+	openSource = "开源"
 )
 
 type OSSLicensingService struct {
@@ -42,16 +42,16 @@ func (l *OSSLicensingService) LicenseURL(user *models.SignedInUser) string {
 
 func (l *OSSLicensingService) Init() error {
 	l.HooksService.AddIndexDataHook(func(indexData *dtos.IndexViewData, req *models.ReqContext) {
-		for _, node := range indexData.NavTree {
-			if node.Id == "admin" {
-				node.Children = append(node.Children, &dtos.NavLink{
-					Text: "Upgrade",
-					Id:   "upgrading",
-					Url:  l.LicenseURL(req.SignedInUser),
-					Icon: "unlock",
-				})
-			}
-		}
+		//for _, node := range indexData.NavTree {
+		//	if node.Id == "admin" {
+		//		node.Children = append(node.Children, &dtos.NavLink{
+		//			Text: "升级",
+		//			Id:   "upgrading",
+		//			Url:  l.LicenseURL(req.SignedInUser),
+		//			Icon: "unlock",
+		//		})
+		//	}
+		//}
 	})
 
 	return nil

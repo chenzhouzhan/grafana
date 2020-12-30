@@ -218,9 +218,8 @@ export class DashboardPage extends PureComponent<Props, State> {
     dashboard.addPanel({
       type: 'add-panel',
       gridPos: { x: 0, y: 0, w: 12, h: 8 },
-      title: 'Panel Title',
+      title: '看板标题',
     });
-
     // scroll to top after adding panel
     this.setState({ updateScrollTop: 0 });
   };
@@ -239,7 +238,7 @@ export class DashboardPage extends PureComponent<Props, State> {
             </HorizontalGroup>{' '}
             <HorizontalGroup align="center" justify="center">
               <Button variant="secondary" size="md" icon="repeat" onClick={this.cancelVariables}>
-                Cancel loading dashboard
+                取消加载仪表盘
               </Button>
             </HorizontalGroup>
           </VerticalGroup>

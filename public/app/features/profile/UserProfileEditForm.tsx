@@ -21,31 +21,31 @@ export const UserProfileEditForm: FC<Props> = ({ user, isSavingUser, updateProfi
     <Form onSubmit={onSubmitProfileUpdate} validateOn="onBlur">
       {({ register, errors }) => {
         return (
-          <FieldSet label="Edit Profile">
-            <Field label="Name" invalid={!!errors.name} error="Name is required">
-              <Input name="name" ref={register({ required: true })} placeholder="Name" defaultValue={user.name} />
+          <FieldSet label="编辑配置">
+            <Field label="姓名" invalid={!!errors.name} error="姓名不能为空">
+              <Input name="name" ref={register({ required: true })} placeholder="姓名" defaultValue={user.name} />
             </Field>
-            <Field label="Email" invalid={!!errors.email} error="Email is required" disabled={disableLoginForm}>
+            <Field label="邮箱" invalid={!!errors.email} error="邮箱不能为空" disabled={disableLoginForm}>
               <Input
                 name="email"
                 ref={register({ required: true })}
-                placeholder="Email"
+                placeholder="邮箱"
                 defaultValue={user.email}
                 suffix={<InputSuffix />}
               />
             </Field>
-            <Field label="Username" disabled={disableLoginForm}>
+            <Field label="用户名" disabled={disableLoginForm}>
               <Input
                 name="login"
                 ref={register}
                 defaultValue={user.login}
-                placeholder="Username"
+                placeholder="用户名"
                 suffix={<InputSuffix />}
               />
             </Field>
             <div className="gf-form-button-row">
               <Button variant="primary" disabled={isSavingUser}>
-                Save
+                保存
               </Button>
             </div>
           </FieldSet>

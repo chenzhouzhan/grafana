@@ -44,7 +44,7 @@ export class UserSyncInfo extends PureComponent<Props, State> {
     return (
       <>
         <button className={`btn btn-secondary pull-right`} onClick={this.onSyncClick} disabled={isDisabled}>
-          <span className="btn-title">Sync user</span>
+          <span className="btn-title">同步用户</span>
           {isSyncing && <Icon name="fa fa-spinner" className="fa-fw fa-spin run-icon" />}
         </button>
 
